@@ -45,6 +45,9 @@ namespace agenda_khelifi.View
 
             MessageBox.Show("Contacte Ajouter avec succée");
 
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Window.GetWindow(this)?.Close();
 
 
         }
