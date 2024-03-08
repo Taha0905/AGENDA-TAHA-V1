@@ -46,7 +46,12 @@ namespace agenda_khelifi
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            //sauvegarder un contacte quand je clic sur le button modifier
+            Contacte contacte = DG_Contacte.SelectedItem as Contacte;
+            contact_DB.UpdateContacte(contacte);
+            DG_Contacte.ItemsSource = contact_DB.GetContactes();
+
+
 
 
         }
