@@ -7,9 +7,57 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="DG_Contacte">
-            
-        </DataGrid>
+        <!--Création de 2 column-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <!--Création de 4 Row dans la 1ere columun-->
+        <Grid Grid.Column="0" Background="#FFB160C8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--1er row mon prenom-->
+            <TextBlock Grid.Row="0" Text="Taha Khelifi" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            <!--2eme row boutton contactes-->
+            <Button Grid.Row="1" Content="Contactes" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!--Liste-->
+            <Button Grid.Row="2" Content="Liste" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!--Deconnexion-->
+            <Button Grid.Row="3" Content="Calendrier" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        
+        <!--2eme column diviser en 2 row-->
+        <Grid Grid.Column="1" Name="Ecran">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+            <!--1er row diviser en 4-->
+            <Grid Grid.Row="0" Background="Beige">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--1er row boutton ajouter -->
+                <Button Grid.Column="0" Content="Ajouter" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
+                <!--2eme row boutton modifier-->
+                <Button Grid.Column="1" Content="Modifier" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1"/>
+                <!--3eme row boutton supprimer-->
+                <Button Grid.Column="2" Content="Supprimer" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_2"/>
+                <!--4eme row boutton rechercher-->
+                <Button Grid.Column="3" Content="Rechercher" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <!--2eme row Datagrid-->
+            <DataGrid Grid.Row="1" Name="DG_Contacte">
+                
+            </DataGrid>
 
+        </Grid>
     </Grid>
 </Window>
