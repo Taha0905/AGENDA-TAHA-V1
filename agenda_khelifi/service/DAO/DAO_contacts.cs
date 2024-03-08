@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace agenda_khelifi.service.DAO
 {
-    public class Contact_DB
+    public class DAO_Contact
     {
         public IEnumerable<Contacte> GetContactes()
         {

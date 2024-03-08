@@ -24,12 +24,14 @@ namespace agenda_khelifi
     public partial class MainWindow : Window
     {
 
-        Contact_DB contact_DB;
+        DAO_Contact contact_DB;
         public MainWindow()
         {
        
             InitializeComponent();
-            contact_DB = new Contact_DB();
+
+
+            contact_DB = new DAO_Contact();
             DG_Contacte.ItemsSource = contact_DB.GetContactes();
 
         }
