@@ -36,7 +36,7 @@ namespace agenda_khelifi
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_ajouter(object sender, RoutedEventArgs e)
         {
             //afficher la page ajouter contact quand je clique sur le button ajouter
             ajouter_contact ajouter_Contact = new ajouter_contact();

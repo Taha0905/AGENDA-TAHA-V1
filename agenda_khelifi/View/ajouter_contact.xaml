@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:agenda_khelifi.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="350" d:DesignWidth="300"
       Title="ajouter_contact">
     <Grid Background="Beige">
         <Grid.RowDefinitions>
@@ -20,6 +20,16 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!-- Libellés -->
+        <TextBlock Text="Nom :" Grid.Row="0" Margin="5"/>
+        <TextBlock Text="Prénom :" Grid.Row="1" Margin="5"/>
+        <TextBlock Text="Email :" Grid.Row="2" Margin="5"/>
+        <TextBlock Text="Téléphone :" Grid.Row="3" Margin="5"/>
+        <TextBlock Text="Adresse :" Grid.Row="4" Margin="5"/>
+        <TextBlock Text="Ville :" Grid.Row="5" Margin="5"/>
+        <TextBlock Text="Code Postal :" Grid.Row="6" Margin="5"/>
+
+        <!-- TextBox -->
         <TextBox x:Name="TB_Nom" Grid.Row="0" Margin="5"/>
         <TextBox x:Name="TB_Prenom" Grid.Row="1" Margin="5"/>
         <TextBox x:Name="TB_Email" Grid.Row="2" Margin="5"/>
@@ -28,7 +38,10 @@
         <TextBox x:Name="TB_Ville" Grid.Row="5" Margin="5"/>
         <TextBox x:Name="TB_CodePostal" Grid.Row="6" Margin="5"/>
 
+        <!-- Bouton Ajouter -->
         <Button Content="Ajouter" Grid.Row="7" Margin="5" Click="Button_Click"/>
+
+        <!-- DataGrid -->
         <DataGrid x:Name="DG_Contacte" Grid.Row="8" Margin="5"/>
     </Grid>
 </Page>

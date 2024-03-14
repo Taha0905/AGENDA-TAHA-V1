@@ -7,57 +7,91 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!--Création de 2 column-->
+        <!-- Création de 2 colonnes -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <!--Création de 4 Row dans la 1ere columun-->
-        <Grid Grid.Column="0" Background="#FFB160C8">
+
+        <!-- Première colonne -->
+        <Grid Grid.Column="0" Background="#FF88758E">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <!--1er row mon prenom-->
-            <TextBlock Grid.Row="0" Text="Taha Khelifi" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-            <!--2eme row boutton contactes-->
-            <Button Grid.Row="1" Content="Contactes" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <!--Liste-->
-            <Button Grid.Row="2" Content="Liste" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <!--Deconnexion-->
-            <Button Grid.Row="3" Content="Calendrier" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <!-- Mon prénom avec une marge en haut-->
+            <TextBlock Grid.Row="0" Text="Agenda Taha" FontSize="30" Margin="0,20,0,0" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+
+
+            <!-- Boutons de navigation -->
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="0,50">
+                <Button Content="Contact" Foreground="Black" Padding="10" Margin="10,0" HorizontalContentAlignment="Left">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="👥" FontSize="18" />
+                                <TextBlock Text=" Contact" FontSize="18" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
+                
+                <!-- boutton liste comme contact-->
+                <Button Content="Liste" Foreground="Black" Padding="10" Margin="10,0" HorizontalContentAlignment="Left">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📋" FontSize="18" />
+                                <TextBlock Text=" Liste" FontSize="18" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
+                <!--pareil calendrier-->
+                <Button Content="Calendrier" Foreground="Black" Padding="10" Margin="10,0" HorizontalContentAlignment="Left">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📅" FontSize="18" />
+                                <TextBlock Text=" Calendrier" FontSize="18" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
+
+
+
+
+            </StackPanel>
         </Grid>
-        
-        <!--2eme column diviser en 2 row-->
-        <Grid Grid.Column="1" Name="Ecran">
+
+        <!-- Deuxième colonne -->
+        <Grid Grid.Column="1" Name="Ecran" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="8*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <!--1er row diviser en 4-->
-            <Grid Grid.Row="0" Background="Beige">
+
+            <!-- Barre d'actions -->
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <!--1er row boutton ajouter -->
-                <Button Grid.Column="0" Content="Ajouter" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
-                <!--2eme row boutton modifier-->
-                <Button Grid.Column="1" Content="Modifier" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1"/>
-                <!--3eme row boutton supprimer-->
-                <Button Grid.Column="2" Content="Supprimer" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_2"/>
-                <!--4eme row boutton rechercher-->
-                <Button Grid.Column="3" Content="Rechercher" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <!--bouton ajouter comme pour contact-->
+                <Button Grid.Column="0" Content="Ajouter" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_ajouter"/>
+                <Button Grid.Column="1" Content="Modifier" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_Click_1"/>
+                <Button Grid.Column="2" Content="Supprimer" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_Click_2"/>
+                <Button Grid.Column="3" Content="Rechercher" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
             </Grid>
-            <!--2eme row Datagrid-->
-            <DataGrid Grid.Row="1" Name="DG_Contacte">
-                
-            </DataGrid>
 
+            <!-- Liste des contacts -->
+            <DataGrid Grid.Row="1" Name="DG_Contacte"/>
         </Grid>
     </Grid>
 </Window>
