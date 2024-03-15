@@ -62,7 +62,5 @@ namespace agenda_khelifi.service.DAO
                 return context.Database.CanConnect();
             }
         }
-
-
     }
 }

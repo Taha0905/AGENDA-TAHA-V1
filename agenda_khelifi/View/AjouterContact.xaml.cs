@@ -45,7 +45,15 @@ namespace agenda_khelifi.View
             //enregistrer dans la base de donnee
             DAO_Contact contact_DB = new DAO_Contact();
             contact_DB.AddContacte(contacte);
-
+            //afficher "contacte ajouter" dans un message box et vider toutes les TB
+            MessageBox.Show("Contacte ajouter");
+            TB_Nom.Text = "";
+            TB_Prenom.Text = "";
+            TB_Phone.Text = "";
+            TB_Email.Text = "";
+            TB_Adresse.Text = "";
+            TB_Ville.Text = "";
+            TB_CodePostal.Text = "";
         }
     }
 }

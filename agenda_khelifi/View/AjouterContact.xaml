@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:agenda_khelifi.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Beige">
+    <Grid Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -20,25 +24,29 @@
         </Grid.RowDefinitions>
 
         <!-- Libellés -->
-        <TextBlock Text="Nom :" Grid.Row="0" Margin="5"/>
-        <TextBlock Text="Prénom :" Grid.Row="1" Margin="5"/>
-        <TextBlock Text="Email :" Grid.Row="2" Margin="5"/>
-        <TextBlock Text="Téléphone :" Grid.Row="3" Margin="5"/>
-        <TextBlock Text="Adresse :" Grid.Row="4" Margin="5"/>
-        <TextBlock Text="Ville :" Grid.Row="5" Margin="5"/>
-        <TextBlock Text="Code Postal :" Grid.Row="6" Margin="5"/>
+        <TextBlock Text="Nom :" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_Nom" Grid.Row="0" Grid.Column="1" Margin="5"/>
 
-        <!-- TextBox -->
-        <TextBox x:Name="TB_Nom" Grid.Row="0" Margin="5"/>
-        <TextBox x:Name="TB_Prenom" Grid.Row="1" Margin="5"/>
-        <TextBox x:Name="TB_Email" Grid.Row="2" Margin="5"/>
-        <TextBox x:Name="TB_Phone" Grid.Row="3" Margin="5"/>
-        <TextBox x:Name="TB_Adresse" Grid.Row="4" Margin="5"/>
-        <TextBox x:Name="TB_Ville" Grid.Row="5" Margin="5"/>
-        <TextBox x:Name="TB_CodePostal" Grid.Row="6" Margin="5"/>
+        <TextBlock Text="Prénom :" Grid.Row="1" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_Prenom" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Email :" Grid.Row="2" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_Email" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Téléphone :" Grid.Row="3" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_Phone" Grid.Row="3" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Adresse :" Grid.Row="4" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_Adresse" Grid.Row="4" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Ville :" Grid.Row="5" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_Ville" Grid.Row="5" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Code Postal :" Grid.Row="6" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_CodePostal" Grid.Row="6" Grid.Column="1" Margin="5"/>
 
         <!-- Bouton Ajouter -->
-        <Button Content="Ajouter" Grid.Row="7" Margin="5" Click="Button_ok"/>
+        <Button Content="Ajouter" Grid.Row="7" Grid.Column="1" Margin="5" Click="Button_ok" HorizontalAlignment="Right"/>
 
         <!-- DataGrid -->
     </Grid>
