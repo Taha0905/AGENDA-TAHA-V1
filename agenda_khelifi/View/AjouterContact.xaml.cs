@@ -1,5 +1,4 @@
-﻿using agenda_khelifi.agenda_DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,42 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using agenda_khelifi.agenda_DB;
+using agenda_khelifi.service.DAO;
 
 namespace agenda_khelifi.View
 {
     /// <summary>
-    /// Logique d'interaction pour ajouter_contact.xaml
+    /// Logique d'interaction pour AjouterContact.xaml
     /// </summary>
-    public partial class ajouter_contact : Page
+    public partial class AjouterContact : UserControl
     {
-        public ajouter_contact()
+        public AjouterContact()
         {
             InitializeComponent();
+
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_ok(object sender, RoutedEventArgs e)
         {
+            //prend les info des TB pour les mettre dans la base de donnee et ensuite les afficher dans la liste des contactes
             Contacte contacte = new Contacte();
             contacte.Nom = TB_Nom.Text;
             contacte.Prenom = TB_Prenom.Text;
             contacte.Phone = TB_Phone.Text;
             contacte.Email = TB_Email.Text;
             contacte.Adresse = TB_Adresse.Text;
+            //ville
             contacte.Ville = TB_Ville.Text;
+            //code postal
             contacte.CodePostal = TB_CodePostal.Text;
-
-            using (var context = new AgendaTahaContext())
-            {
-                context.Contactes.Add(contacte);
-                context.SaveChanges();
-            }
-
-            MessageBox.Show("Contacte Ajouter avec succée");
-
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Window.GetWindow(this)?.Close();
-
+            //enregistrer dans la base de donnee
+            DAO_Contact contact_DB = new DAO_Contact();
+            contact_DB.AddContacte(contacte);
 
         }
     }

@@ -27,43 +27,45 @@ namespace agenda_khelifi
         DAO_Contact contact_DB;
         public MainWindow()
         {
-       
+
             InitializeComponent();
-
-
             contact_DB = new DAO_Contact();
-            DG_Contacte.ItemsSource = contact_DB.GetContactes();
+
+            //voir si la base de donnee existe sinon rendre innactif le button contacte et affichr un message "base de donnee n'existe pas"
+            if (!contact_DB.DBExists())
+            {
+                Button_Contacte.IsEnabled = false;
+                MessageBox.Show("La base de donnee n'existe pas");
+            }
+            else
+            {
+                Button_Contacte.IsEnabled = true;
+            }
 
         }
 
-        private void Button_ajouter(object sender, RoutedEventArgs e)
+
+
+        private void Button_contacte(object sender, RoutedEventArgs e)
         {
-            //afficher la page ajouter contact quand je clique sur le button ajouter
-            ajouter_contact ajouter_Contact = new ajouter_contact();
-            this.Content = ajouter_Contact;
+            //afficher la page contacte "LaViewContact quand je clique sur le button contacte
+            Container.Children.Clear();
+            LaViewContact laviewcontrol = new LaViewContact();
+            Container.Children.Add(laviewcontrol);
+        }
 
-
+        private void Button_liste(object sender, RoutedEventArgs e)
+        {
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Calendrier(object sender, RoutedEventArgs e)
         {
-            //sauvegarder un contacte quand je clic sur le button modifier
-            Contacte contacte = DG_Contacte.SelectedItem as Contacte;
-            contact_DB.UpdateContacte(contacte);
-            DG_Contacte.ItemsSource = contact_DB.GetContactes();
-
-
-
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_menu(object sender, RoutedEventArgs e)
         {
-            //supprimer un contacte quand je clic sur le button supprimer quand jai selectionner un contacte dans la base de donnee
-            Contacte contacte = DG_Contacte.SelectedItem as Contacte;
-            contact_DB.DeleteContacte(contacte.Id);
-            DG_Contacte.ItemsSource = contact_DB.GetContactes();
 
         }
     }

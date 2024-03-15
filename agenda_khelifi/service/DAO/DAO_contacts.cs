@@ -26,11 +26,11 @@ namespace agenda_khelifi.service.DAO
             }
         }
 
-        public void DeleteContacte(int id)
+        public void DeleteContacte(Contacte contacte)
         {
             using (var context = new AgendaTahaContext())
             {
-                var contacte = context.Contactes.Find(id);
+                //var contacte = context.Contactes.Find(id);
                 context.Contactes.Remove(contacte);
                 context.SaveChanges();
             }
@@ -45,6 +45,23 @@ namespace agenda_khelifi.service.DAO
             }
         }
 
+        //chercher par nom
+        public IEnumerable<Contacte> GetContactes(string nom)
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                return context.Contactes.Where(c => c.Nom.Contains(nom)).ToList();
+            }
+        }
+
+        //voir si la base de donnee existe
+        public bool DBExists()
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                return context.Database.CanConnect();
+            }
+        }
 
 
     }

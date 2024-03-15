@@ -1,12 +1,11 @@
-﻿<Page x:Class="agenda_khelifi.View.ajouter_contact"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:agenda_khelifi.View"
-      mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="300"
-      Title="ajouter_contact">
+﻿<UserControl x:Class="agenda_khelifi.View.AjouterContact"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:agenda_khelifi.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Beige">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -39,9 +38,8 @@
         <TextBox x:Name="TB_CodePostal" Grid.Row="6" Margin="5"/>
 
         <!-- Bouton Ajouter -->
-        <Button Content="Ajouter" Grid.Row="7" Margin="5" Click="Button_Click"/>
+        <Button Content="Ajouter" Grid.Row="7" Margin="5" Click="Button_ok"/>
 
         <!-- DataGrid -->
-        <DataGrid x:Name="DG_Contacte" Grid.Row="8" Margin="5"/>
     </Grid>
-</Page>
+</UserControl>
