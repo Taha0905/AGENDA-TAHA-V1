@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using agenda_khelifi.agenda_DB;
 using agenda_khelifi.service.DAO;
+
 
 namespace agenda_khelifi.View
 {
@@ -46,7 +48,7 @@ namespace agenda_khelifi.View
             DAO_Contact contact_DB = new DAO_Contact();
             contact_DB.AddContacte(contacte);
             //afficher "contacte ajouter" dans un message box et vider toutes les TB
-            MessageBox.Show("Contacte ajouter");
+            MessageBox.Show("Contact ajouter");
             TB_Nom.Text = "";
             TB_Prenom.Text = "";
             TB_Phone.Text = "";
@@ -54,6 +56,12 @@ namespace agenda_khelifi.View
             TB_Adresse.Text = "";
             TB_Ville.Text = "";
             TB_CodePostal.Text = "";
+        }
+
+        private void Button_retour(object sender, RoutedEventArgs e)
+        {
+
+
         }
     }
 }

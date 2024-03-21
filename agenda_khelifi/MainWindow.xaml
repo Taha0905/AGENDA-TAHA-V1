@@ -35,7 +35,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="👥" FontSize="18" />
-                                <TextBlock Text=" Contact" FontSize="18" Margin="20,0,0,0"/>
+                                <TextBlock Text=" Contacts" FontSize="18" Margin="20,0,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                     </Button.ContentTemplate>
@@ -79,6 +79,7 @@
             </StackPanel>
             
         </Grid>
+        
         <Grid Grid.Column="1" Name="Container">
             
         </Grid>

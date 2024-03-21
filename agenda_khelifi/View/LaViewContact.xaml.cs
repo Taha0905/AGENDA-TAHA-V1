@@ -37,13 +37,6 @@ namespace agenda_khelifi.View
             AjouterContact ajoutercontrol = new AjouterContact();
             Contact_Container.Children.Add(ajoutercontrol);
 
-
-
-
-
-
-
-
         }
 
         private void Button_modifier(object sender, RoutedEventArgs e)
@@ -60,13 +53,25 @@ namespace agenda_khelifi.View
 
         private void Button_supprimer(object sender, RoutedEventArgs e)
         {
-            //supprimer un contacte quand je clic sur le button supprimer quand jai selectionner un contacte dans la base de donnee
+            //supprimer un contacte quand je clic sur le button supprimer quand jai selectionner un contacte dans la base de donnee et demander si je suis sur de supprimer
             Contacte contacte = DG_Contacte.SelectedItem as Contacte;
-            contact_DB.DeleteContacte(contacte);
-            DG_Contacte.ItemsSource = contact_DB.GetContactes();
+            MessageBoxResult result = MessageBox.Show("Etes vous sur de vouloir supprimer ce contacte ?", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                contact_DB.DeleteContacte(contacte);
+                DG_Contacte.ItemsSource = contact_DB.GetContactes();
+            }
 
 
 
+
+
+        }
+
+        private void Button_rechercher(object sender, RoutedEventArgs e)
+        {
+            //rechercher un contacte par nom quand je clic sur le button rechercher
+            DG_Contacte.ItemsSource = contact_DB.GetContactes(TB_Recherche.Text);
         }
     }
 }
