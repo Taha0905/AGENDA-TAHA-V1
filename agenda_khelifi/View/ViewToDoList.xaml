@@ -11,6 +11,13 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-    
+
+        <DataGrid Grid.Row="1" Name="DG_Tasks">
+            
+        </DataGrid>
+
+
+
+
     </Grid>
 </UserControl>

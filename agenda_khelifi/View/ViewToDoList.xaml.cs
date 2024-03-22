@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using agenda_khelifi.agenda_DB;
+using agenda_khelifi.service.DAO;
 
 namespace agenda_khelifi.View
 {
@@ -20,9 +22,16 @@ namespace agenda_khelifi.View
     /// </summary>
     public partial class ViewToDoList : UserControl
     {
+        DAO_Contact contact_DB;
+
         public ViewToDoList()
         {
             InitializeComponent();
+            //afficher la liste des taches
+            DG_Tasks.ItemsSource = new DAO_Task().GetTasks();
+
+
+
 
 
 
