@@ -62,5 +62,31 @@ namespace agenda_khelifi.service.DAO
                 return context.Database.CanConnect();
             }
         }
+
+        //chercher par Amis
+        public IEnumerable<Contacte> GetContactesAmis()
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                return context.Contactes.Where(c => c.Status == "Amis").ToList();
+            }
+        }
+
+        //chercher par Famille
+        public IEnumerable<Contacte> GetContactesFamille()
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                return context.Contactes.Where(c => c.Status == "Famille").ToList();
+            }
+        }
+        //chercher par Collègue
+        public IEnumerable<Contacte> GetContactesCollegue()
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                return context.Contactes.Where(c => c.Status == "Collègue").ToList();
+            }
+        }
     }
 }

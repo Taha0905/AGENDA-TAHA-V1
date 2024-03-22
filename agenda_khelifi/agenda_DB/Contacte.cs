@@ -21,7 +21,7 @@ public partial class Contacte
 
     public string? Ville { get; set; }
 
-    public DateOnly? DateOfBirth { get; set; }
+    public string? Status { get; set; }
 
     public virtual ICollection<ProfilReseau> ProfilReseaus { get; set; } = new List<ProfilReseau>();
 }

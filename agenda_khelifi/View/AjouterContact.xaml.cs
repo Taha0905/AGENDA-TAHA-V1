@@ -44,6 +44,8 @@ namespace agenda_khelifi.View
             contacte.Ville = TB_Ville.Text;
             //code postal
             contacte.CodePostal = TB_CodePostal.Text;
+            //status
+            contacte.Status = CB_Status.Text;
             //enregistrer dans la base de donnee
             DAO_Contact contact_DB = new DAO_Contact();
             contact_DB.AddContacte(contacte);
@@ -56,6 +58,7 @@ namespace agenda_khelifi.View
             TB_Adresse.Text = "";
             TB_Ville.Text = "";
             TB_CodePostal.Text = "";
+
         }
 
         private void Button_retour(object sender, RoutedEventArgs e)

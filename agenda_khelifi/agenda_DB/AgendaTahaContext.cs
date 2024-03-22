@@ -48,6 +48,7 @@ public partial class AgendaTahaContext : DbContext
             entity.Property(e => e.Nom).HasMaxLength(45);
             entity.Property(e => e.Phone).HasMaxLength(30);
             entity.Property(e => e.Prenom).HasMaxLength(45);
+            entity.Property(e => e.Status).HasColumnType("enum('Amis','Famille','Collègue')");
             entity.Property(e => e.Ville).HasMaxLength(45);
         });
 

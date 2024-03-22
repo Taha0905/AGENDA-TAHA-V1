@@ -45,8 +45,16 @@
         <TextBlock Text="Code Postal :" Grid.Row="6" Grid.Column="0" Margin="5"/>
         <TextBox x:Name="TB_CodePostal" Grid.Row="6" Grid.Column="1" Margin="5"/>
 
+        <!-- ComboBox pour le statut -->
+        <TextBlock Text="Statut :" Grid.Row="7" Grid.Column="0" Margin="5"/>
+        <ComboBox x:Name="CB_Status" Grid.Row="7" Grid.Column="1" Margin="5">
+            <ComboBoxItem Content="Amis"/>
+            <ComboBoxItem Content="Famille"/>
+            <ComboBoxItem Content="Collègue"/>
+        </ComboBox>
+
         <!-- Bouton Ajouter -->
-        <Button Content="Ajouter" Grid.Row="7" Grid.Column="1" Margin="5" Click="Button_ok" HorizontalAlignment="Right"/>
+        <Button Content="Ajouter" Grid.Row="8" Grid.Column="1" Margin="5" Click="Button_ok" HorizontalAlignment="Right"/>
 
         <!-- DataGrid -->
     </Grid>

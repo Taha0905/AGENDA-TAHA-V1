@@ -73,5 +73,27 @@ namespace agenda_khelifi.View
             //rechercher un contacte par nom quand je clic sur le button rechercher
             DG_Contacte.ItemsSource = contact_DB.GetContactes(TB_Recherche.Text);
         }
+
+
+        private void Button_click_amis(object sender, RoutedEventArgs e)
+        {
+            //rechercher un contacte par status "Amis" quand je clic sur le button amis
+            DG_Contacte.ItemsSource = contact_DB.GetContactesAmis();
+
+        }
+
+        private void Button_click_Famille(object sender, RoutedEventArgs e)
+        {
+            //rechercher un contacte par status "Famille" quand je clic sur le button famille
+            DG_Contacte.ItemsSource = contact_DB.GetContactesFamille();
+
+        }
+
+        private void Button_click_travail(object sender, RoutedEventArgs e)
+        {
+            //rechercher un contacte par status "Collègue" quand je clic sur le button travail
+            DG_Contacte.ItemsSource = contact_DB.GetContactesCollegue();
+
+        }
     }
 }

@@ -90,6 +90,48 @@
                 <!--Champ de recherche-->
                 <TextBox Grid.Column="1" Name="TB_Recherche" Margin="10" />
 
+                <!--Trier-->
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Boutton amis-->
+                    <Button Grid.Column="0" Name="BTN_Amis" Content="Amis" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_click_amis">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="👫" FontSize="18" />
+                                    <TextBlock Text="Amis " FontSize="18" Margin="20,0,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                    <!--Boutton famille-->
+                    <Button Grid.Column="1" Name="BTN_Famille" Content="Famille" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_click_Famille">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="👨‍👩‍👧‍👦" FontSize="18" />
+                                    <TextBlock Text="Famille " FontSize="18" Margin="20,0,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                    <!--Boutton travail-->
+                    <Button Grid.Column="2" Name="Travail" Content="Travail" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_click_travail">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="💼" FontSize="18" />
+                                    <TextBlock Text="Travail " FontSize="18" Margin="20,0,0,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                </Grid>
+
             </Grid>
 
         </Grid>
