@@ -5,13 +5,13 @@ namespace agenda_khelifi.agenda_DB;
 
 public partial class Todolist
 {
-    public uint Idlist { get; set; }
+    public uint Id { get; set; }
 
-    public string? ListName { get; set; }
+    public string ListName { get; set; } = null!;
 
-    public DateOnly? DateCreation { get; set; }
+    public string Status { get; set; } = null!;
 
-    public DateOnly? DateFin { get; set; }
+    public int TaskIdTask { get; set; }
 
-    public virtual ICollection<Task> Tasks { get; set; } = new List<Task>();
+    public virtual Task TaskIdTaskNavigation { get; set; } = null!;
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace agenda_khelifi.agenda_DB;
 
-public partial class Réseauxsociaux
+public partial class Reseauxsociaux
 {
     public int IdRéseauxSociaux { get; set; }
 

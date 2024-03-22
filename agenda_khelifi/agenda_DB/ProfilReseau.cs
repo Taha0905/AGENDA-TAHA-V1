@@ -15,5 +15,5 @@ public partial class ProfilReseau
 
     public virtual Contacte Contactes { get; set; } = null!;
 
-    public virtual Réseauxsociaux RéseauxSociauxIdRéseauxSociauxNavigation { get; set; } = null!;
+    public virtual Reseauxsociaux RéseauxSociauxIdRéseauxSociauxNavigation { get; set; } = null!;
 }

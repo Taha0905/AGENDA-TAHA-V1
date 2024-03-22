@@ -63,9 +63,6 @@ namespace agenda_khelifi.View
             }
 
 
-
-
-
         }
 
         private void Button_rechercher(object sender, RoutedEventArgs e)

@@ -7,11 +7,13 @@ public partial class Task
 {
     public int IdTask { get; set; }
 
-    public string? TaskName { get; set; }
+    public string TaskName { get; set; } = null!;
 
-    public string? TaskDescription { get; set; }
+    public string TaskDescription { get; set; } = null!;
 
-    public uint ToDoListIdlist { get; set; }
+    public DateOnly? DateDebut { get; set; }
 
-    public virtual Todolist ToDoListIdlistNavigation { get; set; } = null!;
+    public DateOnly? DateFin { get; set; }
+
+    public virtual ICollection<Todolist> Todolists { get; set; } = new List<Todolist>();
 }

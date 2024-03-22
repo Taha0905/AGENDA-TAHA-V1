@@ -9,6 +9,7 @@ namespace agenda_khelifi.service.DAO
 {
     public class DAO_Contact
     {
+        //chercher tous les contactes
         public IEnumerable<Contacte> GetContactes()
         {
             using (var context = new AgendaTahaContext())

@@ -19,7 +19,7 @@ public partial class AgendaTahaContext : DbContext
 
     public virtual DbSet<ProfilReseau> ProfilReseaus { get; set; }
 
-    public virtual DbSet<Réseauxsociaux> Réseauxsociauxes { get; set; }
+    public virtual DbSet<Reseauxsociaux> Reseauxsociauxes { get; set; }
 
     public virtual DbSet<Task> Tasks { get; set; }
 
@@ -78,11 +78,11 @@ public partial class AgendaTahaContext : DbContext
                 .HasConstraintName("fk_Profil_Reseau_RéseauxSociaux1");
         });
 
-        modelBuilder.Entity<Réseauxsociaux>(entity =>
+        modelBuilder.Entity<Reseauxsociaux>(entity =>
         {
             entity.HasKey(e => e.IdRéseauxSociaux).HasName("PRIMARY");
 
-            entity.ToTable("réseauxsociaux");
+            entity.ToTable("reseauxsociaux");
 
             entity.Property(e => e.IdRéseauxSociaux).HasColumnName("id réseaux_sociaux");
             entity.Property(e => e.Nom).HasMaxLength(45);
@@ -95,37 +95,40 @@ public partial class AgendaTahaContext : DbContext
 
             entity.ToTable("task");
 
-            entity.HasIndex(e => e.ToDoListIdlist, "fk_Task_ToDoList1_idx");
-
             entity.Property(e => e.IdTask).HasColumnName("idTask");
+            entity.Property(e => e.DateDebut).HasColumnName("Date_debut");
+            entity.Property(e => e.DateFin).HasColumnName("Date_fin");
             entity.Property(e => e.TaskDescription)
                 .HasColumnType("text")
                 .HasColumnName("Task_description");
             entity.Property(e => e.TaskName)
                 .HasMaxLength(45)
                 .HasColumnName("Task_name");
-            entity.Property(e => e.ToDoListIdlist).HasColumnName("ToDoList_idlist");
-
-            entity.HasOne(d => d.ToDoListIdlistNavigation).WithMany(p => p.Tasks)
-                .HasForeignKey(d => d.ToDoListIdlist)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_Task_ToDoList1");
         });
 
         modelBuilder.Entity<Todolist>(entity =>
         {
-            entity.HasKey(e => e.Idlist).HasName("PRIMARY");
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
 
             entity.ToTable("todolist");
 
-            entity.Property(e => e.Idlist)
+            entity.HasIndex(e => e.TaskIdTask, "fk_todolist_task1_idx");
+
+            entity.Property(e => e.Id)
                 .ValueGeneratedNever()
-                .HasColumnName("idlist");
-            entity.Property(e => e.DateCreation).HasColumnName("date_creation");
-            entity.Property(e => e.DateFin).HasColumnName("date_fin");
+                .HasColumnName("id");
             entity.Property(e => e.ListName)
                 .HasMaxLength(45)
                 .HasColumnName("list_name");
+            entity.Property(e => e.Status)
+                .HasColumnType("enum('Fini','En cours')")
+                .HasColumnName("status");
+            entity.Property(e => e.TaskIdTask).HasColumnName("task_idTask");
+
+            entity.HasOne(d => d.TaskIdTaskNavigation).WithMany(p => p.Todolists)
+                .HasForeignKey(d => d.TaskIdTask)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_todolist_task1");
         });
 
         OnModelCreatingPartial(modelBuilder);
