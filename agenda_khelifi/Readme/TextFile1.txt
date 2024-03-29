@@ -1,1 +1,1 @@
-﻿Scaffold-DbContext "server=localhost;port=3306;user=root;password=;database=agenda_taha" Pomelo.EntityFrameworkCore.MySql -OutputDir agenda_DB -f
+﻿Scaffold-DbContext "server=172.31.254.67;port=3306;user=taha;password=123;database=agenda_taha;AllowPublicKeyRetrieval=True" Pomelo.EntityFrameworkCore.MySql -OutputDir agenda_DB -f

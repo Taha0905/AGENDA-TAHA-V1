@@ -12,12 +12,23 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="1" Name="DG_Tasks">
-            
-        </DataGrid>
-
-
-
-
+        <!-- ListView pour afficher les tâches -->
+        <ListView Grid.Row="1" ItemsSource="{Binding Tasks}" Margin="10" Background="White" BorderBrush="Black" BorderThickness="1" Name="LV_Tasks">
+            <!-- Personnalisation de l'apparence de chaque élément -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Ajout d'une case à cocher pour chaque tâche -->
+                        <CheckBox IsChecked="{Binding IsSelected}" VerticalAlignment="Center"/>
+                        <!-- Affichage des détails de la tâche -->
+                        <TextBlock Text="{Binding TaskName}" Margin="5"/>
+                        <TextBlock Text="{Binding TaskDescription}" Margin="5"/>
+                        <TextBlock Text="{Binding TaskDate}" Margin="5"/>
+                        <TextBlock Text="{Binding TaskTime}" Margin="5"/>
+                        <TextBlock Text="{Binding TaskStatus}" Margin="5"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

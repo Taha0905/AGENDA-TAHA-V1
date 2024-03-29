@@ -27,12 +27,12 @@ public partial class AgendaTahaContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=localhost;port=3306;user=root;database=agenda_taha", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.21-mysql"));
+        => optionsBuilder.UseMySql("server=172.31.254.67;port=3306;user=taha;password=123;database=agenda_taha;allowpublickeyretrieval=True", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.5.23-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
-            .UseCollation("utf8mb4_0900_ai_ci")
+            .UseCollation("utf8mb4_general_ci")
             .HasCharSet("utf8mb4");
 
         modelBuilder.Entity<Contacte>(entity =>
@@ -41,7 +41,9 @@ public partial class AgendaTahaContext : DbContext
 
             entity.ToTable("contactes");
 
-            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Id)
+                .HasColumnType("int(11)")
+                .HasColumnName("ID");
             entity.Property(e => e.Adresse).HasMaxLength(45);
             entity.Property(e => e.CodePostal).HasMaxLength(45);
             entity.Property(e => e.Email).HasMaxLength(45);
@@ -62,10 +64,16 @@ public partial class AgendaTahaContext : DbContext
 
             entity.HasIndex(e => e.RéseauxSociauxIdRéseauxSociaux, "fk_Profil_Reseau_RéseauxSociaux1_idx");
 
-            entity.Property(e => e.IdProfilReseau).HasColumnName("idProfil_Reseau");
-            entity.Property(e => e.ContactesId).HasColumnName("Contactes_ID");
+            entity.Property(e => e.IdProfilReseau)
+                .HasColumnType("int(11)")
+                .HasColumnName("idProfil_Reseau");
+            entity.Property(e => e.ContactesId)
+                .HasColumnType("int(11)")
+                .HasColumnName("Contactes_ID");
             entity.Property(e => e.Pseudo).HasMaxLength(45);
-            entity.Property(e => e.RéseauxSociauxIdRéseauxSociaux).HasColumnName("RéseauxSociaux_id réseaux_sociaux");
+            entity.Property(e => e.RéseauxSociauxIdRéseauxSociaux)
+                .HasColumnType("int(11)")
+                .HasColumnName("RéseauxSociaux_id réseaux_sociaux");
 
             entity.HasOne(d => d.Contactes).WithMany(p => p.ProfilReseaus)
                 .HasForeignKey(d => d.ContactesId)
@@ -84,7 +92,9 @@ public partial class AgendaTahaContext : DbContext
 
             entity.ToTable("reseauxsociaux");
 
-            entity.Property(e => e.IdRéseauxSociaux).HasColumnName("id réseaux_sociaux");
+            entity.Property(e => e.IdRéseauxSociaux)
+                .HasColumnType("int(11)")
+                .HasColumnName("id réseaux_sociaux");
             entity.Property(e => e.Nom).HasMaxLength(45);
             entity.Property(e => e.Url).HasMaxLength(45);
         });
@@ -95,7 +105,9 @@ public partial class AgendaTahaContext : DbContext
 
             entity.ToTable("task");
 
-            entity.Property(e => e.IdTask).HasColumnName("idTask");
+            entity.Property(e => e.IdTask)
+                .HasColumnType("int(11)")
+                .HasColumnName("idTask");
             entity.Property(e => e.DateDebut).HasColumnName("Date_debut");
             entity.Property(e => e.DateFin).HasColumnName("Date_fin");
             entity.Property(e => e.TaskDescription)
@@ -116,6 +128,7 @@ public partial class AgendaTahaContext : DbContext
 
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
+                .HasColumnType("int(10) unsigned")
                 .HasColumnName("id");
             entity.Property(e => e.ListName)
                 .HasMaxLength(45)
@@ -123,7 +136,9 @@ public partial class AgendaTahaContext : DbContext
             entity.Property(e => e.Status)
                 .HasColumnType("enum('Fini','En cours')")
                 .HasColumnName("status");
-            entity.Property(e => e.TaskIdTask).HasColumnName("task_idTask");
+            entity.Property(e => e.TaskIdTask)
+                .HasColumnType("int(11)")
+                .HasColumnName("task_idTask");
 
             entity.HasOne(d => d.TaskIdTaskNavigation).WithMany(p => p.Todolists)
                 .HasForeignKey(d => d.TaskIdTask)

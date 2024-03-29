@@ -56,6 +56,10 @@ namespace agenda_khelifi
 
         private void Button_liste(object sender, RoutedEventArgs e)
         {
+            //afficher la page liste des taches "ViewToDoList" quand je clique sur le button liste
+            Container.Children.Clear();
+            ViewToDoList viewtodolistcontrol = new ViewToDoList();
+            Container.Children.Add(viewtodolistcontrol);
 
         }
 

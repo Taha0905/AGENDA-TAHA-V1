@@ -1,11 +1,14 @@
 ﻿using agenda_khelifi.agenda_DB;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace agenda_khelifi.service.DAO
+
 {
     public class DAO_Contact
     {
@@ -89,5 +92,7 @@ namespace agenda_khelifi.service.DAO
                 return context.Contactes.Where(c => c.Status == "Collègue").ToList();
             }
         }
+
+
     }
 }
