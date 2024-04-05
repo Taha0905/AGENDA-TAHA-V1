@@ -33,6 +33,7 @@ namespace agenda_khelifi.service.DAO
                     new FileDataStore(credPath, true)).Result;
             }
 
+
             // Créer le service Google Calendar API
             var service = new CalendarService(new BaseClientService.Initializer()
             {
@@ -40,6 +41,7 @@ namespace agenda_khelifi.service.DAO
                 ApplicationName = ApplicationName,
             });
 
+            
             // Définir les paramètres de la requête
             EventsResource.ListRequest request = service.Events.List("primary");
             request.TimeMin = DateTime.Now;
@@ -51,6 +53,17 @@ namespace agenda_khelifi.service.DAO
             // Récupérer les événements
             Events events = request.Execute();
             return events.Items;
+
+        }
+        //charger les evenements
+        public static void LoadEvents()
+        {
+            // Récupérer les événements du calendrier
+            var events = GetEvents();
+            foreach (var evt in events)
+            {
+                // Ajouter l'événement à la liste
+            }
         }
     }
 }

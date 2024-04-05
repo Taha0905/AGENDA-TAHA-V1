@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using Google.Apis.Calendar.v3.Data;
 using agenda_khelifi.service.DAO;
-
 namespace agenda_khelifi.View
 {
     /// <summary>
@@ -29,6 +28,13 @@ namespace agenda_khelifi.View
             {
                 Events.Add(evt);
             }
+        }
+
+        private void RefreshButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            //rafraichir les evenements
+            Events.Clear();
+            LoadEvents();
         }
     }
 }

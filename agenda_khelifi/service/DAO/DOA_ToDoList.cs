@@ -7,7 +7,7 @@ using agenda_khelifi.agenda_DB;
 
 namespace agenda_khelifi.service.DAO
 {
-    public class DOA_ToDoList
+    public class DOA_ToDoList : DAO_Task
     {
         //chercher tous les listes
         public IEnumerable<Todolist> GetToDoList()
@@ -17,6 +17,7 @@ namespace agenda_khelifi.service.DAO
                 return context.Todolists.ToList();
             }
         }
+
         //ajouter une liste
         public void AddToDoList(Todolist todolist)
         {

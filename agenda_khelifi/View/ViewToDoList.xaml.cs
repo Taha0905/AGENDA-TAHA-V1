@@ -9,6 +9,8 @@ namespace agenda_khelifi.View
     {
         DAO_Task task_DB;
 
+        public IEnumerable<Task> Tasks { get; set; }
+
         public ViewToDoList()
         {
             InitializeComponent();
@@ -20,10 +22,11 @@ namespace agenda_khelifi.View
         private void LoadTasks()
         {
             // Utilisez la méthode GetTasks() de votre DAO_Task pour obtenir les tâches depuis la base de données
-            IEnumerable<Task> tasks = task_DB.GetTasks();
+            Tasks = task_DB.GetTasks();
 
-            // Assurez-vous que la propriété ItemsSource de votre ListView est correctement définie
-            LV_Tasks.ItemsSource = tasks;
+
+            // Assurez-vous que la propriété Tasks est correctement définie comme source de données
+            DataContext = this;
         }
     }
 }
