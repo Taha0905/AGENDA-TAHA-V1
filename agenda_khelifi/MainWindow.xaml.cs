@@ -31,17 +31,21 @@ namespace agenda_khelifi
             InitializeComponent();
             contact_DB = new DAO_Contact();
 
-            //voir si la base de donnee existe sinon rendre innactif le button contacte et affichr un message "base de donnee n'existe pas"
+
+            //voir si la base de donnee existe sinon rendre innactif le button contacte et liste et affichr un message "base de donnee n'existe pas"
             if (!contact_DB.DBExists())
             {
                 Button_Contacte.IsEnabled = false;
+                Bouttonliste.IsEnabled = false;
+
                 MessageBox.Show("La base de donnee n'existe pas");
             }
             else
             {
                 Button_Contacte.IsEnabled = true;
-            }
+                Bouttonliste.IsEnabled = true;
 
+            }
         }
 
 
@@ -65,6 +69,11 @@ namespace agenda_khelifi
 
         private void Button_Calendrier(object sender, RoutedEventArgs e)
         {
+            //afficher la page calendrier "ViewCalendar" quand je clique sur le button calendrier
+            Container.Children.Clear();
+            ViewCalendar viewcalendarcontrol = new ViewCalendar();
+            Container.Children.Add(viewcalendarcontrol);
+
 
         }
 

@@ -42,7 +42,7 @@
                 </Button>
                 
                 <!-- boutton liste-->
-                <Button Content="Liste" Foreground="Black" Padding="10" Margin="10,0" HorizontalContentAlignment="Left" Click="Button_liste">
+                <Button Content="Liste" Foreground="Black" Padding="10" Margin="10,0" HorizontalContentAlignment="Left" Click="Button_liste" Name="Bouttonliste">
                     <Button.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
