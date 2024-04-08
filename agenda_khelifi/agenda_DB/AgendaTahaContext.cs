@@ -19,15 +19,13 @@ public partial class AgendaTahaContext : DbContext
 
     public virtual DbSet<ProfilReseau> ProfilReseaus { get; set; }
 
-    public virtual DbSet<Reseauxsociaux> Reseauxsociauxes { get; set; }
-
     public virtual DbSet<Task> Tasks { get; set; }
 
     public virtual DbSet<Todolist> Todolists { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=172.31.254.75;port=3306;user=taha;password=123;database=agenda_taha;allowpublickeyretrieval=True", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.5.23-mariadb"));
+        => optionsBuilder.UseMySql("server=172.31.254.146;port=3306;user=taha;password=123;database=agenda_taha;allowpublickeyretrieval=True", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.5.23-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -62,41 +60,26 @@ public partial class AgendaTahaContext : DbContext
 
             entity.HasIndex(e => e.ContactesId, "fk_Profil_Reseau_Contactes_idx");
 
-            entity.HasIndex(e => e.RéseauxSociauxIdRéseauxSociaux, "fk_Profil_Reseau_RéseauxSociaux1_idx");
-
             entity.Property(e => e.IdProfilReseau)
                 .HasColumnType("int(11)")
                 .HasColumnName("idProfil_Reseau");
             entity.Property(e => e.ContactesId)
                 .HasColumnType("int(11)")
                 .HasColumnName("Contactes_ID");
-            entity.Property(e => e.Pseudo).HasMaxLength(45);
-            entity.Property(e => e.RéseauxSociauxIdRéseauxSociaux)
-                .HasColumnType("int(11)")
-                .HasColumnName("RéseauxSociaux_id réseaux_sociaux");
+            entity.Property(e => e.NomDansReseaux)
+                .HasMaxLength(45)
+                .HasColumnName("Nom_dans_reseaux");
+            entity.Property(e => e.NomReseaux)
+                .HasMaxLength(45)
+                .HasColumnName("Nom_reseaux");
+            entity.Property(e => e.Url)
+                .HasMaxLength(45)
+                .HasColumnName("URL");
 
             entity.HasOne(d => d.Contactes).WithMany(p => p.ProfilReseaus)
                 .HasForeignKey(d => d.ContactesId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_Profil_Reseau_Contactes");
-
-            entity.HasOne(d => d.RéseauxSociauxIdRéseauxSociauxNavigation).WithMany(p => p.ProfilReseaus)
-                .HasForeignKey(d => d.RéseauxSociauxIdRéseauxSociaux)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_Profil_Reseau_RéseauxSociaux1");
-        });
-
-        modelBuilder.Entity<Reseauxsociaux>(entity =>
-        {
-            entity.HasKey(e => e.IdRéseauxSociaux).HasName("PRIMARY");
-
-            entity.ToTable("reseauxsociaux");
-
-            entity.Property(e => e.IdRéseauxSociaux)
-                .HasColumnType("int(11)")
-                .HasColumnName("id réseaux_sociaux");
-            entity.Property(e => e.Nom).HasMaxLength(45);
-            entity.Property(e => e.Url).HasMaxLength(45);
         });
 
         modelBuilder.Entity<Task>(entity =>

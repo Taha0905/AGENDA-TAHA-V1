@@ -21,6 +21,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
                 <!--bouton ajouter avec un design comme pour contact-->
                 <Button Content="Ajouter" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" Click="Button_ajouter">
@@ -28,7 +29,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="➕" FontSize="18" />
-                                <TextBlock Text="Ajouter  " FontSize="18" Margin="20,0,0,0"/>
+                                <TextBlock Text="Ajouter  " FontSize="18" Margin="5,0,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                     </Button.ContentTemplate>
@@ -40,7 +41,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="✏️" FontSize="18" />
-                                <TextBlock Text="Modifier " FontSize="18" Margin="20,0,0,0"/>
+                                <TextBlock Text="Modifier " FontSize="18" Margin="5,0,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                     </Button.ContentTemplate>
@@ -51,13 +52,28 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="❌" FontSize="18" />
-                                <TextBlock Text="Supprimer  " FontSize="18" Margin="20,0,0,0"/>
+                                <TextBlock Text="Supprimer  " FontSize="18" Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
+
+                <!-- details des contacts -->
+                <Button Grid.Column="3" Content="Détails" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_details">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🔍" FontSize="18" />
+                                <TextBlock Text="Détails " FontSize="18" Margin="5,0,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                     </Button.ContentTemplate>
                 </Button>
 
             </Grid>
+            
+            
+            
 
             <Grid Grid.Row="1" Name="Contact_Container">
 

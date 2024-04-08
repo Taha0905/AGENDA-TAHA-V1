@@ -9,11 +9,11 @@ public partial class ProfilReseau
 
     public int ContactesId { get; set; }
 
-    public string? Pseudo { get; set; }
+    public string NomReseaux { get; set; } = null!;
 
-    public int RéseauxSociauxIdRéseauxSociaux { get; set; }
+    public string NomDansReseaux { get; set; } = null!;
+
+    public string? Url { get; set; }
 
     public virtual Contacte Contactes { get; set; } = null!;
-
-    public virtual Reseauxsociaux RéseauxSociauxIdRéseauxSociauxNavigation { get; set; } = null!;
 }

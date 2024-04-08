@@ -92,5 +92,14 @@ namespace agenda_khelifi.View
             DG_Contacte.ItemsSource = contact_DB.GetContactesCollegue();
 
         }
+
+        private void Button_details(object sender, RoutedEventArgs e)
+        {
+            //afficher les reseaux d'un contacte quand je clic sur le button details
+            Contacte contacte = DG_Contacte.SelectedItem as Contacte;
+            DAO_Reseaux reseau_DB = new DAO_Reseaux();
+            DG_Contacte.ItemsSource = reseau_DB.GetReseaux(contacte.Id);
+
+        }
     }
 }
