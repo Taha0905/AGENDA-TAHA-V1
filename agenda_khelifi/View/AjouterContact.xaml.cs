@@ -33,7 +33,7 @@ namespace agenda_khelifi.View
 
         private void Button_ok(object sender, RoutedEventArgs e)
         {
-            //prend les info des TB pour les mettre dans la base de donnee et ensuite les afficher dans la liste des contactes
+            //prend les info des TB pour les mettre dans la base de donnee et ensuite les afficher dans la liste des contactes et gestion d'erreur si aucune TB est remplie
             Contacte contacte = new Contacte();
             contacte.Nom = TB_Nom.Text;
             contacte.Prenom = TB_Prenom.Text;
@@ -58,6 +58,8 @@ namespace agenda_khelifi.View
             TB_Adresse.Text = "";
             TB_Ville.Text = "";
             TB_CodePostal.Text = "";
+            CB_Status.Text = "";
+
 
         }
 

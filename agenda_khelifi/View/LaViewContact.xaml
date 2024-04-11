@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
                 <!--bouton ajouter avec un design comme pour contact-->
-                <Button Content="Ajouter" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5" Click="Button_ajouter">
+                <Button Content="Ajouter" FontSize="18" HorizontalAlignment="Center" Margin="0,5,0,5" Click="Button_ajouter">
                     <Button.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -69,11 +69,9 @@
                         </DataTemplate>
                     </Button.ContentTemplate>
                 </Button>
-
             </Grid>
-            
-            
-            
+
+
 
             <Grid Grid.Row="1" Name="Contact_Container">
 
@@ -90,7 +88,7 @@
                     <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="200"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <!--Bouton de rechercher avec logo-->
                 <Button Grid.Column="2" Content="Rechercher" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Click="Button_rechercher">
                     <Button.ContentTemplate>
@@ -102,7 +100,7 @@
                         </DataTemplate>
                     </Button.ContentTemplate>
                 </Button>
-                
+
                 <!--Champ de recherche-->
                 <TextBox Grid.Column="1" Name="TB_Recherche" Margin="10" />
 

@@ -16,5 +16,32 @@ namespace agenda_khelifi.service.DAO
                 return context.Tasks.ToList();
             }
         }
+        //ajouter une tache
+        public void AddTask(Task task)
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                context.Tasks.Add(task);
+                context.SaveChanges();
+            }
+        }
+        //supprimer une tache
+        public void DeleteTask(Task task)
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                context.Tasks.Remove(task);
+                context.SaveChanges();
+            }
+        }
+        //modifier une tache
+        public void UpdateTask(Task task)
+        {
+            using (var context = new AgendaTahaContext())
+            {
+                context.Tasks.Update(task);
+                context.SaveChanges();
+            }
+        }
     }
 }

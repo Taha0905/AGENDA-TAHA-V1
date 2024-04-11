@@ -28,5 +28,16 @@ namespace agenda_khelifi.View
             // Assurez-vous que la propriété Tasks est correctement définie comme source de données
             DataContext = this;
         }
+
+        private void AjouterReseaux_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Affichez la vue AjouterTask dans le conteneur 
+            Task_container.Children.Clear();
+            AjouterTask ajouterTask = new AjouterTask();
+            Task_container.Children.Add(ajouterTask);
+
+
+
+        }
     }
 }

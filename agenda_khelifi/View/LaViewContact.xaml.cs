@@ -32,34 +32,44 @@ namespace agenda_khelifi.View
         }
         private void Button_ajouter(object sender, RoutedEventArgs e)
         {
-            //afficher la page ajouter_contact quand je clique sur le button ajouter
+            //afficher la page ajouter_contact quand je clique sur le button ajouter 
             Contact_Container.Children.Clear();
             AjouterContact ajoutercontrol = new AjouterContact();
             Contact_Container.Children.Add(ajoutercontrol);
-
         }
 
         private void Button_modifier(object sender, RoutedEventArgs e)
         {
-            //sauvegarder un contacte quand je clic sur le button modifier
+            //sauvegarder un contacte quand je clic sur le button modifier et gestion d'erreur si je n'ai pas selectionner un contacte
             Contacte contacte = DG_Contacte.SelectedItem as Contacte;
-            contact_DB.UpdateContacte(contacte);
-            DG_Contacte.ItemsSource = contact_DB.GetContactes();
-
-
-
+            if (contacte != null)
+            {
+                contact_DB.UpdateContacte(contacte);
+                DG_Contacte.ItemsSource = contact_DB.GetContactes();
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectionner un contacte");
+            }
 
         }
 
         private void Button_supprimer(object sender, RoutedEventArgs e)
         {
-            //supprimer un contacte quand je clic sur le button supprimer quand jai selectionner un contacte dans la base de donnee et demander si je suis sur de supprimer
+            //supprimer un contacte quand je clic sur le button supprimer quand jai selectionner un contacte dans la base de donnee et demander si je suis sur de supprimer et gestion d'erreur si je n'ai pas selectionner un contacte
             Contacte contacte = DG_Contacte.SelectedItem as Contacte;
-            MessageBoxResult result = MessageBox.Show("Etes vous sur de vouloir supprimer ce contacte ?", "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (contacte != null)
             {
-                contact_DB.DeleteContacte(contacte);
-                DG_Contacte.ItemsSource = contact_DB.GetContactes();
+                MessageBoxResult result = MessageBox.Show("Etes vous sur de vouloir supprimer ce contacte", "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    contact_DB.DeleteContacte(contacte);
+                    DG_Contacte.ItemsSource = contact_DB.GetContactes();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectionner un contacte");
             }
 
 
@@ -95,10 +105,19 @@ namespace agenda_khelifi.View
 
         private void Button_details(object sender, RoutedEventArgs e)
         {
-            //afficher les reseaux d'un contacte quand je clic sur le button details
+            //afficher les reseaux d'un contacte quand je clic sur le button details et gestion d'erreur si je n'ai pas selectionner un contacte
             Contacte contacte = DG_Contacte.SelectedItem as Contacte;
-            DAO_Reseaux reseau_DB = new DAO_Reseaux();
-            DG_Contacte.ItemsSource = reseau_DB.GetReseaux(contacte.Id);
+            if (contacte != null)
+            {
+                DAO_Reseaux reseau_DB = new DAO_Reseaux();
+                DG_Contacte.ItemsSource = reseau_DB.GetReseaux(contacte.Id);
+            }
+            else
+            {
+                MessageBox.Show("Veuillez selectionner un contacte");
+            }
+
+
 
         }
     }

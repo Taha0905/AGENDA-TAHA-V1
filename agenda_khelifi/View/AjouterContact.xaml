@@ -56,6 +56,5 @@
         <!-- Bouton Ajouter -->
         <Button Content="Ajouter" Grid.Row="8" Grid.Column="1" Margin="5" Click="Button_ok" HorizontalAlignment="Right"/>
 
-        <!-- DataGrid -->
     </Grid>
 </UserControl>
