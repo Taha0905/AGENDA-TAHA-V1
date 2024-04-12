@@ -20,7 +20,7 @@ namespace agenda_khelifi.service.DAO
         {
             UserCredential credential;
 
-            // Charger les informations d'identification depuis le fichier credentials.json
+            // Charger les informations d'identification depuis le fichier credentials.json sinon afficher un message d'erreur
             using (var stream =
                 new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
             {

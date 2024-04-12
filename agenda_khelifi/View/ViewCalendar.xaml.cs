@@ -23,6 +23,7 @@ namespace agenda_khelifi.View
         private void LoadEvents()
         {
             // Récupérer les événements du calendrier
+
             var events = DAO_google_calendar.GetEvents();
             foreach (var evt in events)
             {

@@ -53,7 +53,7 @@
                     </Button.ContentTemplate>
                 </Button>
                 <!--pareil calendrier-->
-                <Button Content="Calendrier" Foreground="Black" Padding="10" Margin="10,0" HorizontalContentAlignment="Left" Click="Button_Calendrier">
+                <Button Content="Calendrier" Foreground="Black" Padding="10" Margin="10,0" HorizontalContentAlignment="Left" Click="Button_Calendrier" IsEnabled="False">
                     <Button.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
