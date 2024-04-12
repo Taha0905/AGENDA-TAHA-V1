@@ -33,7 +33,5 @@
 
         <!-- Bouton Ajouter -->
         <Button x:Name="BTN_Ajouter" Content="Changer" Grid.Row="3" Grid.Column="1" Margin="5" Click="Button_change"/>
-        <!-- Actualiser -->
-        <Button x:Name="BTN_Actualiser" Content="Actualiser" Grid.Row="4" Grid.Column="1" Margin="5" Click="Button_actualiser"/>
     </Grid>
 </UserControl>

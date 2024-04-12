@@ -39,16 +39,5 @@ namespace agenda_khelifi.View
             ConfigurationManager.RefreshSection("appSettings");
         }
 
-        private void Button_actualiser(object sender, RoutedEventArgs e)
-        {
-            //actualiser les TB avec les donnees de la base de donnee
-            TB_Host.Text = ConfigurationManager.AppSettings["host"];
-            TB_user.Text = ConfigurationManager.AppSettings["user"];
-            TB_password.Text = ConfigurationManager.AppSettings["password"];
-
-       
-
-
-        }
     }
 }
