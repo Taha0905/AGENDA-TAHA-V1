@@ -71,8 +71,6 @@ namespace agenda_khelifi.View
             {
                 MessageBox.Show("Veuillez selectionner un contacte");
             }
-
-
         }
 
         private void Button_rechercher(object sender, RoutedEventArgs e)

@@ -6,7 +6,34 @@
              xmlns:local="clr-namespace:agenda_khelifi.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Libellés -->
+        <TextBlock Text="Host :" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_Host" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="User :" Grid.Row="1" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_user" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <TextBlock Text="Password :" Grid.Row="2" Grid.Column="0" Margin="5"/>
+        <TextBox x:Name="TB_password" Grid.Row="2" Grid.Column="1" Margin="5"/>
+        
+        
+
+        <!-- Bouton Ajouter -->
+        <Button x:Name="BTN_Ajouter" Content="Changer" Grid.Row="3" Grid.Column="1" Margin="5" Click="Button_change"/>
+        <!-- Actualiser -->
+        <Button x:Name="BTN_Actualiser" Content="Actualiser" Grid.Row="4" Grid.Column="1" Margin="5" Click="Button_actualiser"/>
     </Grid>
 </UserControl>

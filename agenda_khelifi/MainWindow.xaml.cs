@@ -79,6 +79,10 @@ namespace agenda_khelifi
 
         private void Button_menu(object sender, RoutedEventArgs e)
         {
+            //afficher la page menu "ViewMenu" quand je clique sur le button menu
+            Container.Children.Clear();
+            ViewMenu viewmenucontrol = new ViewMenu();
+            Container.Children.Add(viewmenucontrol);
 
         }
     }

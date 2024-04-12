@@ -15,9 +15,17 @@ namespace agenda_khelifi.service.DAO
         //chercher tous les contactes
         public IEnumerable<Contacte> GetContactes()
         {
-            using (var context = new AgendaTahaContext())
+            try
             {
-                return context.Contactes.ToList();
+                using (var context = new AgendaTahaContext())
+                {
+                    return context.Contactes.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
 

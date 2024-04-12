@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,31 @@ namespace agenda_khelifi.View
         public ViewMenu()
         {
             InitializeComponent();
+            TB_Host.Text = ConfigurationManager.AppSettings["host"];
+            TB_user.Text = ConfigurationManager.AppSettings["user"];
+            TB_password.Text = ConfigurationManager.AppSettings["password"];
+        }
+
+        private void Button_change(object sender, RoutedEventArgs e)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["host"].Value = TB_Host.Text;
+            config.AppSettings.Settings["user"].Value = TB_user.Text;
+            config.AppSettings.Settings["password"].Value = TB_password.Text;
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+        }
+
+        private void Button_actualiser(object sender, RoutedEventArgs e)
+        {
+            //actualiser les TB avec les donnees de la base de donnee
+            TB_Host.Text = ConfigurationManager.AppSettings["host"];
+            TB_user.Text = ConfigurationManager.AppSettings["user"];
+            TB_password.Text = ConfigurationManager.AppSettings["password"];
+
+       
+
+
         }
     }
 }

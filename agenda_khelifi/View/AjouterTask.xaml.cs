@@ -44,5 +44,11 @@ namespace agenda_khelifi.View
 
 
         }
+
+        private void Button_DetailTask(object sender, RoutedEventArgs e)
+        {
+
+
+        }
     }
 }

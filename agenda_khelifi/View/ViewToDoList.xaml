@@ -42,9 +42,9 @@
 
         <!-- Boutton pour ajouter supprimer et modifier une nouvelle tâche -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Content="Ajouter" Margin="5" Command="{Binding AddTaskCommand}" Name="AjouterReseaux" Click="AjouterReseaux_Click"/>
-            <Button Content="Modifier" Margin="5" Command="{Binding UpdateTaskCommand}" Name="ModifierReseaux"/>
-            <Button Content="Supprimer" Margin="5" Command="{Binding DeleteTaskCommand}" Name="SupprimerReseaux"/>
+            <Button Content="Ajouter" Margin="5" Command="{Binding AddTaskCommand}" Name="AjouterTask" Click="AjouterTask_Click"/>
+            <Button Content="Modifier" Margin="5" Command="{Binding UpdateTaskCommand}" Name="ModifierTask" Click="ModifierTask_Click"/>
+            <Button Content="Supprimer" Margin="5" Command="{Binding DeleteTaskCommand}" Name="SupprimerTask" Click="SupprimerTask_Click"/>
         </StackPanel>
 
 

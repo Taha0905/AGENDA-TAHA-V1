@@ -1,13 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.AccessControl;
+using System.Windows;
+using agenda_khelifi.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace agenda_khelifi.agenda_DB;
 
 public partial class AgendaTahaContext : DbContext
 {
+    private readonly string _connectionstring;
+    private readonly ConnectionManager _connectionManager;
+
     public AgendaTahaContext()
     {
+        ConnectionManager connectionManager = new ConnectionManager();
+        _connectionstring = connectionManager.ConString;
+
+        
     }
 
     public AgendaTahaContext(DbContextOptions<AgendaTahaContext> options)
@@ -23,9 +33,17 @@ public partial class AgendaTahaContext : DbContext
 
     public virtual DbSet<Todolist> Todolists { get; set; }
 
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseMySql("server=172.31.254.84;port=3306;user=taha;password=123;database=agenda_taha;allowpublickeyretrieval=True", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.5.23-mariadb"));
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=172.31.254.84;port=3306;user=taha;password=123;database=agenda_taha;allowpublickeyretrieval=True", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.5.23-mariadb"));
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseMySql(_connectionstring, Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.5.23-mariadb"));
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

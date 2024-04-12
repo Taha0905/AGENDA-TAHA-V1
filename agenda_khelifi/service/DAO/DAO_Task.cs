@@ -11,9 +11,16 @@ namespace agenda_khelifi.service.DAO
         //chercher tous les taches
         public IEnumerable<Task> GetTasks()
         {
+            try {
             using (var context = new AgendaTahaContext())
             {
                 return context.Tasks.ToList();
+            }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
         }
         //ajouter une tache

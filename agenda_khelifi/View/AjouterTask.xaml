@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!-- Libellés -->
@@ -26,6 +27,7 @@
 
         <!-- Bouton Ajouter -->
         <Button x:Name="BTN_Ajouter" Content="Ajouter" Grid.Row="2" Grid.Column="1" Margin="5" Click="Button_AddTask"/>
+
 
 
     </Grid>
